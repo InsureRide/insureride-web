@@ -1,0 +1,296 @@
+/*!
+ * Start Bootstrap - Scrolling Nav (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #F6F6F6;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+/* Navigation - Everything that is in the Navigation */
+.navbar {
+    background-color: #fff;
+}
+
+.navbar-brand {
+    padding: 0;
+}
+
+#navlogo {
+    height: 50px;
+}
+
+
+.navbar-right>li {
+    padding-top: 5px;
+}
+
+.profile-info {
+    margin-left: 25px;
+    padding-top: 0px !important;
+}
+
+#profileimg{
+    height: 63px;
+    padding-top: 3px;
+    margin-left: 10px;
+}
+
+/* Content Section */
+
+
+.btn-primary {
+    border: 1px solid #3281E5; /* Green */
+    background-color: transparent;
+    color: #3281E5;
+}
+
+
+
+
+/* Welcome Section */
+
+.welcomesection {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.greetingsection {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+
+.greetingaddition {
+    font-size: 25px;
+    font-weight: normal;
+}
+
+/* Rating Panel */
+.rating-panel {
+    padding: 20px;
+}
+
+.rating-left-section {
+    float: left;
+    width: 30%;
+    text-align: left;
+}
+
+.rating-title {
+    font-size: 18px !important;
+}
+
+.rating-right-section {
+    float: left;
+    width: 70%;
+    text-align: left;
+}
+
+#set-goal {
+    font-size: 16px;
+}
+
+/* Car Panel - User gets all the info about his car */
+.car-info>div {
+    padding-top: 5px;
+}
+
+
+
+.car-panel {
+    padding: 0;
+}
+.car-image {
+    background: url('../img/volvoside.jpg');
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;              /* optional, center the image */
+    height: 200px;
+    width: 100%;
+    padding: 0;
+
+}
+
+.car-image:hover {
+    background: url('../img/volvofront.jpg');
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+.car-info {
+    padding: 20px;
+    text-align: left;
+}
+
+.car-model {
+    font-size: 30px;
+    padding-top: 0px !important;
+    font-weight: bold;
+}
+
+.car-location {
+    padding-top: 20px !important;
+}
+
+.car-moreinfo-wrapper {
+    padding-top: 20px !important;
+}
+
+
+/* Drives */
+.pastdrives-title {
+    font-size: 20px;
+    text-align: left;
+    margin-bottom: 15px;
+
+}
+
+.drive-panel {
+    padding: 20px;
+    text-align: left;
+}
+
+.drive-panel:hover {
+    background-color: #002E54;
+}
+
+.drive-panel:hover .ride-info-content{
+    color: white;
+}
+
+.drive-panel:hover .btn-primary {
+    border: 1px solid white; /* Green */
+    background-color: transparent;
+    color: white;
+}
+
+.drive-row {
+    padding-bottom: 10px;
+}
+
+.ride-infotitle {
+    color: #CDCDCD;
+    font-size: 13px;
+}
+
+
+
+.ride-info-content {
+    color: #545454;
+    font-size: 16px;
+}
+
+
+.route-from-section {
+    float: left;
+    width: 50%;
+}
+
+.route-to-section {
+    float: left;
+    width: 50%;
+}
+
+.drive-moreinfo-wrapper {
+    margin-top: 10px;
+}
+
+.drive-details-btn:hover{
+    background-color: white !important;
+    color: #002E54 !important;
+}
+
+
+
+
+@media(min-width:767px) {
+    .navbar {
+        padding: 20px 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+
+    .top-nav-collapse {
+        padding: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+/* Demo Sections - You can use these as guides or delete them - the scroller will work with any sort of height, fixed, undefined, or percentage based.
+The padding is very important to make sure the scrollspy picks up the right area when scrolled to. Adjust the margin and padding of sections and children 
+of those sections to manage the look and feel of the site. */
+
+.intro-section {
+    padding-top: 150px;
+    text-align: center;
+    background: #F6F6F6;
+}
+
+.profile-section {
+    padding-top: 150px;
+    text-align: center;
+    background: #F6F6F6;
+}
+
+.services-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background: #fff;
+}
+
+.contact-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background: #eee;
+}
+
+
+
+/* PROFIL SITE */
+
+/* Account Section */
+.account-panel{
+    padding: 20px;
+}
+.account-title {
+    font-size: 18px !important;
+    text-align: left;
+}
+
+.current-balance {
+    font-size: 30px;
+    text-align: left;
+    color: #27ae60;
+}
+
+
+
+
+
+/* Profile Section */
+.profile-image {
+    background: url('../img/tonylarge.jpg');
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;              /* optional, center the image */
+    height: 300px;
+    width: 100%;
+    padding: 0;
+
+}
