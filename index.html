@@ -11,11 +11,29 @@
 
     <title>Scrolling Nav - Start Bootstrap Template</title>
 
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="css/scrolling-nav.css" rel="stylesheet">
+
 
     <!-- Circle CSS -->
     <link href="css/circle.css" rel="stylesheet">
@@ -53,16 +71,16 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                         <li class="hidden">
-                            <a class="page-scroll" href="#page-top"></a>
+                            <a class="page-scroll" href="#page-top" ></a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#about">Dashboard</a>
+                            <a class="page-scroll" href="#about" data-section="intro">Dashboard</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#services">History</a>
+                            <a class="page-scroll" href="#services" data-section="services">History</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#contact">Profile</a>
+                            <a class="page-scroll" href="#contact" data-section="profile">Profile</a>
                         </li>
                         <li class="profile-info">
                             Tony Stark&nbsp;&nbsp;<span class="glyphicon glyphicon glyphicon-chevron-down" aria-hidden="true"></span><img id="profileimg"src="./img/tonystarkprofileimg.png">
@@ -197,316 +215,10 @@
         </div>
     </div>
 </div>
+<div class="mytest">
+</div>
 
-<div class="row journies">
-    <div class="col-md-3">
-        <div class="panel panel-default drive-panel">
-            <div class="drive-row">
-             <div class="route-from-section"> 
-                <div class="ride-infotitle">
-                    From
-                </div>
-                <div class="ride-info-content">
-                    St. Gallen
-                </div>
-            </div>
-            <div class="route-to-section"> 
-                <div class="ride-infotitle">
-                    To
-                </div>
-                <div class="ride-info-content">
-                    Munich
-                </div>
-            </div>
-            <br style="clear: left;" />
-        </div>
-        <div class="route-locations-section">
-         <div class="drive-row">
-            <div class="ride-infotitle">
-                Date
-            </div>
-            <div class="ride-info-content" >
-                17.03.2017
-            </div>
-        </div>
-
-        <div class="drive-row">
-            <div class="ride-infotitle">
-                Driving Score
-            </div>
-            <div class="ride-info-content" style="color: #27ae60">
-                Very Safe Drive
-            </div>
-        </div>
-                        <!--
-                         <div class="drive-row">
-                             <div class="route-from-section"> 
-                                <div class="ride-infotitle">
-                                    Distance
-                                </div>
-                                <div class="ride-info-content">
-                                    233 km
-                                </div>
-                            </div>
-                            <div class="route-to-section"> 
-                                <div class="ride-infotitle">
-                                    Time
-                                </div>
-                                <div class="ride-info-content">
-                                    2h 33min
-                                </div>
-                            </div>
-                            <br style="clear: left;" />
-                        </div>
-                    -->
-                    <div class="drive-row">
-                        <div class="ride-infotitle">
-                            Insurance Cost
-                        </div>
-                        <div class="ride-info-content">
-                            CHF 9.15
-                        </div>
-                    </div>
-                    <div class="drive-moreinfo-wrapper">
-                        <button type="button" class="btn btn-primary btn-md drive-details-btn">
-                            Details
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="col-md-3">
-        <div class="panel panel-default drive-panel">
-            <div class="drive-row">
-             <div class="route-from-section"> 
-                <div class="ride-infotitle">
-                    From
-                </div>
-                <div class="ride-info-content">
-                    St. Gallen
-                </div>
-            </div>
-            <div class="route-to-section"> 
-                <div class="ride-infotitle">
-                    To
-                </div>
-                <div class="ride-info-content">
-                    Munich
-                </div>
-            </div>
-            <br style="clear: left;" />
-        </div>
-        <div class="route-locations-section">
-         <div class="drive-row">
-            <div class="ride-infotitle">
-                Date
-            </div>
-            <div class="ride-info-content" >
-                17.03.2017
-            </div>
-        </div>
-
-        <div class="drive-row">
-            <div class="ride-infotitle">
-                Driving Score
-            </div>
-            <div class="ride-info-content" style="color: #27ae60">
-                Very Safe Drive
-            </div>
-        </div>
-                        <!--
-                         <div class="drive-row">
-                             <div class="route-from-section"> 
-                                <div class="ride-infotitle">
-                                    Distance
-                                </div>
-                                <div class="ride-info-content">
-                                    233 km
-                                </div>
-                            </div>
-                            <div class="route-to-section"> 
-                                <div class="ride-infotitle">
-                                    Time
-                                </div>
-                                <div class="ride-info-content">
-                                    2h 33min
-                                </div>
-                            </div>
-                            <br style="clear: left;" />
-                        </div>
-                    -->
-                    <div class="drive-row">
-                        <div class="ride-infotitle">
-                            Insurance Cost
-                        </div>
-                        <div class="ride-info-content">
-                            CHF 9.15
-                        </div>
-                    </div>
-                    <div class="drive-moreinfo-wrapper">
-                        <button type="button" class="btn btn-primary btn-md drive-details-btn">
-                            Details
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="col-md-3">
-        <div class="panel panel-default drive-panel">
-            <div class="drive-row">
-             <div class="route-from-section"> 
-                <div class="ride-infotitle">
-                    From
-                </div>
-                <div class="ride-info-content">
-                    St. Gallen
-                </div>
-            </div>
-            <div class="route-to-section"> 
-                <div class="ride-infotitle">
-                    To
-                </div>
-                <div class="ride-info-content">
-                    Munich
-                </div>
-            </div>
-            <br style="clear: left;" />
-        </div>
-        <div class="route-locations-section">
-         <div class="drive-row">
-            <div class="ride-infotitle">
-                Date
-            </div>
-            <div class="ride-info-content" >
-                17.03.2017
-            </div>
-        </div>
-
-        <div class="drive-row">
-            <div class="ride-infotitle">
-                Driving Score
-            </div>
-            <div class="ride-info-content" style="color: #27ae60">
-                Very Safe Drive
-            </div>
-        </div>
-                        <!--
-                         <div class="drive-row">
-                             <div class="route-from-section"> 
-                                <div class="ride-infotitle">
-                                    Distance
-                                </div>
-                                <div class="ride-info-content">
-                                    233 km
-                                </div>
-                            </div>
-                            <div class="route-to-section"> 
-                                <div class="ride-infotitle">
-                                    Time
-                                </div>
-                                <div class="ride-info-content">
-                                    2h 33min
-                                </div>
-                            </div>
-                            <br style="clear: left;" />
-                        </div>
-                    -->
-                    <div class="drive-row">
-                        <div class="ride-infotitle">
-                            Insurance Cost
-                        </div>
-                        <div class="ride-info-content">
-                            CHF 9.15
-                        </div>
-                    </div>
-                    <div class="drive-moreinfo-wrapper">
-                        <button type="button" class="btn btn-primary btn-md drive-details-btn">
-                            Details
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="col-md-3">
-        <div class="panel panel-default drive-panel">
-            <div class="drive-row">
-             <div class="route-from-section"> 
-                <div class="ride-infotitle">
-                    From
-                </div>
-                <div class="ride-info-content">
-                    St. Gallen
-                </div>
-            </div>
-            <div class="route-to-section"> 
-                <div class="ride-infotitle">
-                    To
-                </div>
-                <div class="ride-info-content">
-                    Munich
-                </div>
-            </div>
-            <br style="clear: left;" />
-        </div>
-        <div class="route-locations-section">
-         <div class="drive-row">
-            <div class="ride-infotitle">
-                Date
-            </div>
-            <div class="ride-info-content" >
-                17.03.2017
-            </div>
-        </div>
-
-        <div class="drive-row">
-            <div class="ride-infotitle">
-                Driving Score
-            </div>
-            <div class="ride-info-content" style="color: #27ae60">
-                Very Safe Drive
-            </div>
-        </div>
-                        <!--
-                         <div class="drive-row">
-                             <div class="route-from-section"> 
-                                <div class="ride-infotitle">
-                                    Distance
-                                </div>
-                                <div class="ride-info-content">
-                                    233 km
-                                </div>
-                            </div>
-                            <div class="route-to-section"> 
-                                <div class="ride-infotitle">
-                                    Time
-                                </div>
-                                <div class="ride-info-content">
-                                    2h 33min
-                                </div>
-                            </div>
-                            <br style="clear: left;" />
-                        </div>
-                    -->
-                    <div class="drive-row">
-                        <div class="ride-infotitle">
-                            Insurance Cost
-                        </div>
-                        <div class="ride-info-content">
-                            CHF 9.15
-                        </div>
-                    </div>
-                    <div class="drive-moreinfo-wrapper">
-                        <button type="button" class="btn btn-primary btn-md drive-details-btn">
-                            Details
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-        
+<div class="row journies">    
 
 </div>
 </section>
@@ -524,7 +236,7 @@
                 <div class="panel panel-default account-panel">
                     <div class="panel-body">
                         <div class="account-title">Current Balance</div>
-                        <div class="current-balance">CHF 1354.00</div>
+                        <div class="current-balance">USD 1354.00</div>
                         <br />
                         <div class="account-title">Transactions</div>
                    
@@ -533,7 +245,7 @@
       <tr>
         <th>Date</th>
         <th>Time</th>
-        <th>Amount (CHF)</th>
+        <th>Amount (USD)</th>
       </tr>
     </thead>
     <tbody>
@@ -634,6 +346,7 @@
 <!-- Scrolling Nav JavaScript -->
 <script src="js/jquery.easing.min.js"></script>
 <script src="js/scrolling-nav.js"></script>
+<script src="js/app.js"></script>
 
 </body>
 
