@@ -98,12 +98,39 @@ $( document ).ready(function() {
        // If drive detail button is clicked
     $(document.body).on('click', '.drive-details-btn' ,function(){
         var driveId = $(this).data("id");
-
         showDriveDetail(driveId);
+        drawMap('st. gallen', 'wil');
     });
+
+
 
     
 });
+
+function drawMap(from, to){
+        console.log('asdf');
+        var directionsService = new google.maps.DirectionsService();
+        var directionsDisplay = new google.maps.DirectionsRenderer();
+        console.log(document.getElementById('map-canvas'));
+        var map = new google.maps.Map(document.getElementById('map-canvas'), {
+            zoom:7,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        directionsDisplay.setMap(map);
+
+        var request = {
+            origin: 'Zurich', 
+            destination: 'Bern',
+            travelMode: google.maps.DirectionsTravelMode.DRIVING
+        };
+
+        directionsService.route(request, function(response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+            }
+        });
+    }
 
 // Navigation
 $( document ).ready(function() {
@@ -116,10 +143,5 @@ $( document ).ready(function() {
         $("section").hide();
         $("section#"+ $(this).data('section')).show();
     });
-
-    
-
-
-
 });
     
