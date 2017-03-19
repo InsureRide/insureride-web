@@ -6,13 +6,13 @@ var routes = [
                    from: {name: "St. Gallen", long: 47.4241, lat: 9.3709},
                    to: {name: "Munich", long: 48.1448, lat: 11.558},
                    km: 227,
-                   score: 4.9
+                   score: 6.9
                },
                {
                    from: {name: "Munich", long: 48.1448, lat: 11.558},
                    to: {name: "St. Gallen", long: 47.4241, lat: 9.3709},
                    km: 227,
-                   score: 6.7
+                   score: 4.7
                },
                {
                    from: {name: "St. Gallen", long: 47.4241, lat: 9.3709},
