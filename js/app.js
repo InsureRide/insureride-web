@@ -2,32 +2,25 @@ var API = 'https://insureride.net/api/v1';
 // var API = 'http://localhost:8080/v1';
 
 var routes = [
-                {
-                    from: {name: "Zurich", long: 47.3673, lat: 47.3673},
-                    to: {name: "Bern", long: 46.9479, lat: 7.4446},
-                    km: 124,
-                    score: 8.9
-
-                },
-                {
-                    from: {name: "St. Gallen", long: 47.4241, lat: 9.3709},
-                    to: {name: "Wil", long: 47.4635, lat: 9.0479},
-                    km: 31,
-                    score: 4.9
-                },
-                {
-                    from: {name: "St. Gallen", long: 47.4241, lat: 9.3709},
-                    to: {name: "Wil", long: 47.4635, lat: 9.0479},
-                    km: 31,
-                    score: 5.2
-                },
-                {
-                    from: {name: "Borås", long: 57.721, lat: 9.3709},
-                    to: {name: "Gothenburg", long: 57.7089, lat: 11.9746 },
-                    km: 62,
-                    score: 9.1
-                },
-            ];
+               {
+                   from: {name: "St. Gallen", long: 47.4241, lat: 9.3709},
+                   to: {name: "Munich", long: 48.1448, lat: 11.558},
+                   km: 227,
+                   score: 4.9
+               },
+               {
+                   from: {name: "Munich", long: 48.1448, lat: 11.558},
+                   to: {name: "St. Gallen", long: 47.4241, lat: 9.3709},
+                   km: 227,
+                   score: 6.7
+               },
+               {
+                   from: {name: "St. Gallen", long: 47.4241, lat: 9.3709},
+                   to: {name: "St. Gallen", long: 47.4241, lat: 9.3709},
+                   km: 1,
+                   score: 6.2
+               },
+           ];
 
 var drives = {};
 
