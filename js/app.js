@@ -29,26 +29,36 @@ var routes = [
                 },
             ];
 
+var drives = {};
+
 function getScoreTag(score) {
     if(score > 8){
         return '<div class="ride-info-content" style="color: #27ae60"> Very Safe Drive </div>';
     }
     if(score > 5){
-        return '<div class="ride-info-content" style="color: #a427ae"> Safe Drive </div>';
+        return '<div class="ride-info-content" style="color: #2ecc71"> Safe Drive </div>';
     }
     if(score > 3){
-        return '<div class="ride-info-content" style="color: #a427ae"> Risky Drive </div>';
+        return '<div class="ride-info-content" style="color: #d35400"> Risky Drive </div>';
     }
     if(score > 0){
-        return '<div class="ride-info-content" style="color: #ae2732"> Very Risky Drive </div>';
+        return '<div class="ride-info-content" style="color: #c0392b"> Very Risky Drive </div>';
     }
 }
+
+function getTimeDiff(from, to){
+    var now  = to;
+    var then = from;
+
+    return moment.utc(moment(now,"DD/MM/YYYY HH:mm:ss").diff(moment(then,"DD/MM/YYYY HH:mm:ss"))).format("HH:mm");
+}
+
 
 $( document ).ready(function() {
     var car = {};
 
     function loadDrives(drives) {
-        drives = drives.reverse();
+        
 
 
         $.each(drives, function( index, drive ) {
@@ -60,10 +70,10 @@ $( document ).ready(function() {
             console.log(drive);
 
             // mock price calculation
-            var price = parseFloat(Math.round(drive.route.km * 0.1 * 100) / 100).toFixed(2);
-            
+            //var price = parseFloat(Math.round(drive.route.km * 0.1 * 100) / 100).toFixed(2);
+           
 
-            var drivetag = '<div class="col-md-3"> <div class="panel panel-default drive-panel"> <div class="drive-row"> <div class="route-from-section"> <div class="ride-infotitle"> From </div> <div class="ride-info-content"> '+drive.route.from.name+'</div> </div> <div class="route-to-section"> <div class="ride-infotitle"> To </div> <div class="ride-info-content"> '+drive.route.to.name+' </div> </div> <br style="clear: left;" /> </div> <div class="route-locations-section"> <div class="drive-row"> <div class="ride-infotitle"> Date </div> <div class="ride-info-content">'+moment.unix((drive.Starttime)).format('MM.DD.YYYY')+'</div> </div> <div class="drive-row"> <div class="ride-infotitle"> Driving Score </div> '+ getScoreTag(drive.route.score)+' </div> <!-- <div class="drive-row"> <div class="route-from-section"> <div class="ride-infotitle"> Distance </div> <div class="ride-info-content"> '+drive.route.km+' km </div> </div> <div class="route-to-section"> <div class="ride-infotitle"> Time </div> <div class="ride-info-content"> 2h 33min </div> </div> <br style="clear: left;" /> </div> --> <div class="drive-row"> <div class="ride-infotitle"> Insurance Cost </div> <div class="ride-info-content"> CHF '+price+' </div> </div> <div class="drive-moreinfo-wrapper"> <button type="button" class="btn btn-primary btn-md drive-details-btn" data-id="'+ index +'"> Details </button> </div> </div> </div> </div>';
+            var drivetag = '<div class="col-md-3"> <div class="panel panel-default drive-panel"> <div class="drive-row"> <div class="route-from-section"> <div class="ride-infotitle"> From </div> <div class="ride-info-content"> '+drive.route.from.name+'</div> </div> <div class="route-to-section"> <div class="ride-infotitle"> To </div> <div class="ride-info-content"> '+drive.route.to.name+' </div> </div> <br style="clear: left;" /> </div> <div class="route-locations-section"> <div class="drive-row"> <div class="ride-infotitle"> Date </div> <div class="ride-info-content">'+moment.unix((drive.Starttime)).format('DD.MM.YYYY')+'</div> </div> <div class="drive-row"> <div class="ride-infotitle"> Driving Score </div> '+ getScoreTag(drive.route.score)+' </div> <div class="drive-row"> <div class="ride-infotitle"> Insurance Cost </div> <div class="ride-info-content"> CHF '+ parseFloat(Math.round(drive.Price)).toFixed(2) +' </div> </div> <div class="drive-moreinfo-wrapper"> <button type="button" class="btn btn-primary btn-md drive-details-btn" data-id="'+ index +'"> Details </button> </div> </div> </div> </div>';
             $('.journies').append(drivetag);
 
             if( index === 0 ) {
@@ -74,6 +84,14 @@ $( document ).ready(function() {
         
     }
 
+    function loadTransaction(drives) {
+        $.each(drives, function( index, drive ) {
+            $('#transactiontablebody').append("<tr><td>"+moment.unix(drive.Starttime).format('DD.MM.YYYY')+"</td><td>"+moment.unix(drive.Starttime).format('HH:mm')+"</td><td class='tablecontentright'>"+parseFloat(Math.round(drive.Price)).toFixed(2)+"</td></tr>");
+        });
+
+        $('.current-balance').text("CHF " + car.Balance);
+    }
+
     function loadCarStatus(car) {
         
     }
@@ -81,16 +99,46 @@ $( document ).ready(function() {
     function showDriveDetail(driveId) {
         $("section").hide();
 
+        $('.drivedetailstitle').text( car.Drives[driveId].route.from.name +' to '+ car.Drives[driveId].route.to.name +' on '+ moment.unix((car.Drives[driveId].Starttime)).format('DD.MM.YYYY'));
+
+        $('#detailfromname').text(car.Drives[driveId].route.from.name);
+        $('#detailtoname').text(car.Drives[driveId].route.to.name);
+        $('#detaildate').text(moment.unix((car.Drives[driveId].Starttime)).format('DD.MM.YYYY'));
+        $('#detailtoname').text(car.Drives[driveId].route.to.name);
+            
+
+        var scoreTitle = getScoreTag(car.Drives[driveId].route.score);
+        $('#detailscore').append(scoreTitle);
+        $('#detaildistance').text(car.Drives[driveId].route.km+' km');
+
+        var starttime = moment.unix((car.Drives[driveId].Starttime)).format('DD/MM/YYYY HH:mm:ss');
+        var endtime = moment.unix((car.Drives[driveId].Starttime)).format('DD/MM/YYYY HH:mm:ss');
+        console.log(starttime);
+        console.log(getTimeDiff(starttime, endtime));
+
+        $('#detailtime').text(getTimeDiff(starttime, endtime));
+         $('#detailprice').text('CHF '+car.Drives[driveId].Price);
+         $('#detailkmh').text(car.Drives[driveId].Avgspeed);
+
+            
+
         $("section#drivedetails").show();
+
+
     }
 
     //Get Car info
     $.get( API + "/car/1", function( data ) {
       
       car = data;
+      console.log(car);
+      car.Drives = car.Drives.reverse();
       loadDrives(car.Drives);
+      loadTransaction(car.Drives);
 
       loadCarStatus(car);
+
+      // load account
 
     });
 
@@ -99,7 +147,7 @@ $( document ).ready(function() {
     $(document.body).on('click', '.drive-details-btn' ,function(){
         var driveId = $(this).data("id");
         showDriveDetail(driveId);
-        drawMap('st. gallen', 'wil');
+        drawMap(car.Drives[driveId].route.from.name, car.Drives[driveId].route.to.name)
     });
 
 
@@ -108,7 +156,6 @@ $( document ).ready(function() {
 });
 
 function drawMap(from, to){
-        console.log('asdf');
         var directionsService = new google.maps.DirectionsService();
         var directionsDisplay = new google.maps.DirectionsRenderer();
         console.log(document.getElementById('map-canvas'));
@@ -120,8 +167,8 @@ function drawMap(from, to){
         directionsDisplay.setMap(map);
 
         var request = {
-            origin: 'Zurich', 
-            destination: 'Bern',
+            origin: String(from), 
+            destination: String(to),
             travelMode: google.maps.DirectionsTravelMode.DRIVING
         };
 
@@ -141,6 +188,9 @@ $( document ).ready(function() {
 
     $("a.page-scroll").on("click", function(){
         $("section").hide();
+
+
+
         $("section#"+ $(this).data('section')).show();
     });
 });
