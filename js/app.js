@@ -109,16 +109,16 @@ $( document ).ready(function() {
 
         var scoreTitle = getScoreTag(car.Drives[driveId].route.score);
         $('#detailscore').append(scoreTitle);
-        $('#detaildistance').text(car.Drives[driveId].route.km+' km');
+        $('#detaildistance').text((Math.round(car.Drives[driveId].Kilometers * 100) / 100)+' km');
 
         var starttime = moment.unix((car.Drives[driveId].Starttime)).format('DD/MM/YYYY HH:mm:ss');
-        var endtime = moment.unix((car.Drives[driveId].Starttime)).format('DD/MM/YYYY HH:mm:ss');
+        var endtime = moment.unix((car.Drives[driveId].Endtime)).format('DD/MM/YYYY HH:mm:ss');
         console.log(starttime);
         console.log(getTimeDiff(starttime, endtime));
 
-        $('#detailtime').text(getTimeDiff(starttime, endtime));
-         $('#detailprice').text('CHF '+car.Drives[driveId].Price);
-         $('#detailkmh').text(car.Drives[driveId].Avgspeed);
+        $('#detailtime').text(getTimeDiff(starttime, endtime)+" h");
+         $('#detailprice').text('CHF '+parseFloat(Math.round(car.Drives[driveId].Price)).toFixed(2));
+         $('#detailkmh').text(Math.round(car.Drives[driveId].Avgspeed * 100) / 100);
 
             
 

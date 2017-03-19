@@ -326,3 +326,8 @@ table td, th {
     height: 500px;
     width: 100%;
 }
+
+#dropdown_SkypeButton_Call_schneider_1 {
+    z-index: 100;
+    text-align: right;
+}
