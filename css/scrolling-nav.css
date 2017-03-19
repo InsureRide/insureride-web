@@ -260,6 +260,12 @@ of those sections to manage the look and feel of the site. */
     background: #eee;
 }
 
+.drivedetails-section {
+    padding-top: 150px;
+    text-align: center;
+    background: #F6F6F6;
+}
+
 
 
 /* PROFIL SITE */
@@ -283,6 +289,7 @@ of those sections to manage the look and feel of the site. */
 
 
 
+
 /* Profile Section */
 .profile-image {
     background: url('../img/tonylarge.jpg');
@@ -294,3 +301,14 @@ of those sections to manage the look and feel of the site. */
     padding: 0;
 
 }
+
+/* Drive Details Section */
+.drivedetailstitlesection {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+#map-canvas {
+          height: 100%;
+          width: 100%;
+      }

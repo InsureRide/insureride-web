@@ -63,7 +63,7 @@ $( document ).ready(function() {
             var price = parseFloat(Math.round(drive.route.km * 0.1 * 100) / 100).toFixed(2);
             
 
-            var drivetag = '<div class="col-md-3"> <div class="panel panel-default drive-panel"> <div class="drive-row"> <div class="route-from-section"> <div class="ride-infotitle"> From </div> <div class="ride-info-content"> '+drive.route.from.name+'</div> </div> <div class="route-to-section"> <div class="ride-infotitle"> To </div> <div class="ride-info-content"> '+drive.route.to.name+' </div> </div> <br style="clear: left;" /> </div> <div class="route-locations-section"> <div class="drive-row"> <div class="ride-infotitle"> Date </div> <div class="ride-info-content">'+moment.unix((drive.Starttime)).format('MM.DD.YYYY')+'</div> </div> <div class="drive-row"> <div class="ride-infotitle"> Driving Score </div> '+ getScoreTag(drive.route.score)+' </div> <!-- <div class="drive-row"> <div class="route-from-section"> <div class="ride-infotitle"> Distance </div> <div class="ride-info-content"> '+drive.route.km+' km </div> </div> <div class="route-to-section"> <div class="ride-infotitle"> Time </div> <div class="ride-info-content"> 2h 33min </div> </div> <br style="clear: left;" /> </div> --> <div class="drive-row"> <div class="ride-infotitle"> Insurance Cost </div> <div class="ride-info-content"> CHF '+price+' </div> </div> <div class="drive-moreinfo-wrapper"> <button type="button" class="btn btn-primary btn-md drive-details-btn"> Details </button> </div> </div> </div> </div>';
+            var drivetag = '<div class="col-md-3"> <div class="panel panel-default drive-panel"> <div class="drive-row"> <div class="route-from-section"> <div class="ride-infotitle"> From </div> <div class="ride-info-content"> '+drive.route.from.name+'</div> </div> <div class="route-to-section"> <div class="ride-infotitle"> To </div> <div class="ride-info-content"> '+drive.route.to.name+' </div> </div> <br style="clear: left;" /> </div> <div class="route-locations-section"> <div class="drive-row"> <div class="ride-infotitle"> Date </div> <div class="ride-info-content">'+moment.unix((drive.Starttime)).format('MM.DD.YYYY')+'</div> </div> <div class="drive-row"> <div class="ride-infotitle"> Driving Score </div> '+ getScoreTag(drive.route.score)+' </div> <!-- <div class="drive-row"> <div class="route-from-section"> <div class="ride-infotitle"> Distance </div> <div class="ride-info-content"> '+drive.route.km+' km </div> </div> <div class="route-to-section"> <div class="ride-infotitle"> Time </div> <div class="ride-info-content"> 2h 33min </div> </div> <br style="clear: left;" /> </div> --> <div class="drive-row"> <div class="ride-infotitle"> Insurance Cost </div> <div class="ride-info-content"> CHF '+price+' </div> </div> <div class="drive-moreinfo-wrapper"> <button type="button" class="btn btn-primary btn-md drive-details-btn" data-id="'+ index +'"> Details </button> </div> </div> </div> </div>';
             $('.journies').append(drivetag);
 
             if( index === 0 ) {
@@ -78,6 +78,12 @@ $( document ).ready(function() {
         
     }
 
+    function showDriveDetail(driveId) {
+        $("section").hide();
+
+        $("section#drivedetails").show();
+    }
+
     //Get Car info
     $.get( API + "/car/1", function( data ) {
       
@@ -89,6 +95,14 @@ $( document ).ready(function() {
     });
 
 
+       // If drive detail button is clicked
+    $(document.body).on('click', '.drive-details-btn' ,function(){
+        var driveId = $(this).data("id");
+
+        showDriveDetail(driveId);
+    });
+
+    
 });
 
 // Navigation
@@ -102,6 +116,8 @@ $( document ).ready(function() {
         $("section").hide();
         $("section#"+ $(this).data('section')).show();
     });
+
+    
 
 
 
