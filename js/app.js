@@ -73,7 +73,7 @@ $( document ).ready(function() {
             //var price = parseFloat(Math.round(drive.route.km * 0.1 * 100) / 100).toFixed(2);
            
 
-            var drivetag = '<div class="col-md-3"> <div class="panel panel-default drive-panel"> <div class="drive-row"> <div class="route-from-section"> <div class="ride-infotitle"> From </div> <div class="ride-info-content"> '+drive.route.from.name+'</div> </div> <div class="route-to-section"> <div class="ride-infotitle"> To </div> <div class="ride-info-content"> '+drive.route.to.name+' </div> </div> <br style="clear: left;" /> </div> <div class="route-locations-section"> <div class="drive-row"> <div class="ride-infotitle"> Date </div> <div class="ride-info-content">'+moment.unix((drive.Starttime)).format('DD.MM.YYYY')+'</div> </div> <div class="drive-row"> <div class="ride-infotitle"> Driving Score </div> '+ getScoreTag(drive.route.score)+' </div> <div class="drive-row"> <div class="ride-infotitle"> Insurance Cost </div> <div class="ride-info-content"> CHF '+ parseFloat(Math.round(drive.Price)).toFixed(2) +' </div> </div> <div class="drive-moreinfo-wrapper"> <button type="button" class="btn btn-primary btn-md drive-details-btn" data-id="'+ index +'"> Details </button> </div> </div> </div> </div>';
+            var drivetag = '<div class="col-md-3"> <div class="panel panel-default drive-panel"> <div class="drive-row"> <div class="route-from-section"> <div class="ride-infotitle"> From </div> <div class="ride-info-content"> '+drive.route.from.name+'</div> </div> <div class="route-to-section"> <div class="ride-infotitle"> To </div> <div class="ride-info-content"> '+drive.route.to.name+' </div> </div> <br style="clear: left;" /> </div> <div class="route-locations-section"> <div class="drive-row"> <div class="ride-infotitle"> Date </div> <div class="ride-info-content">'+moment.unix((drive.Starttime)).format('DD.MM.YYYY')+'</div> </div> <div class="drive-row"> <div class="ride-infotitle"> Driving Score </div> '+ getScoreTag(drive.route.score)+' </div> <div class="drive-row"> <div class="ride-infotitle"> Insurance Cost </div> <div class="ride-info-content"> CHF '+ drive.Price +' </div> </div> <div class="drive-moreinfo-wrapper"> <button type="button" class="btn btn-primary btn-md drive-details-btn" data-id="'+ index +'"> Details </button> </div> </div> </div> </div>';
             $('.journies').append(drivetag);
 
             if( index === 0 ) {
@@ -86,7 +86,7 @@ $( document ).ready(function() {
 
     function loadTransaction(drives) {
         $.each(drives, function( index, drive ) {
-            $('#transactiontablebody').append("<tr><td>"+moment.unix(drive.Starttime).format('DD.MM.YYYY')+"</td><td>"+moment.unix(drive.Starttime).format('HH:mm')+"</td><td class='tablecontentright'>"+parseFloat(Math.round(drive.Price)).toFixed(2)+"</td></tr>");
+            $('#transactiontablebody').append("<tr><td>"+moment.unix(drive.Starttime).format('DD.MM.YYYY')+"</td><td>"+moment.unix(drive.Starttime).format('HH:mm')+"</td><td class='tablecontentright'>"+drive.Price+"</td></tr>");
         });
 
         $('.current-balance').text("CHF " + car.Balance);
@@ -117,7 +117,7 @@ $( document ).ready(function() {
         console.log(getTimeDiff(starttime, endtime));
 
         $('#detailtime').text(getTimeDiff(starttime, endtime)+" h");
-         $('#detailprice').text('CHF '+parseFloat(Math.round(car.Drives[driveId].Price)).toFixed(2));
+         $('#detailprice').text('CHF '+car.Drives[driveId].Price);
          $('#detailkmh').text(Math.round(car.Drives[driveId].Avgspeed * 100) / 100);
 
             
